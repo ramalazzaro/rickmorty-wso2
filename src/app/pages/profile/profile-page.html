@@ -4,7 +4,8 @@
   <div class="card-body">
     <p class="mb-1"><strong>Nombre:</strong> {{ claims.given_name }} {{ claims.family_name }}</p>
     <p class="mb-1"><strong>Email:</strong> {{ claims.email }}</p>
-    <p class="mb-1"><strong>Usuario (sub):</strong> {{ claims.sub }}</p>
+    <p class="mb-1"><strong>Usuario:</strong> {{ claims.username }}</p>
+    <p class="mb-1"><strong>Identificador (sub):</strong> {{ claims.sub }}</p>
     <p class="mb-0"><strong>El token de acceso vence:</strong> {{ accessTokenExpiration | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
   </div>
 </div>
