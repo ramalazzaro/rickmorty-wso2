@@ -1,0 +1,12 @@
+@if (!isLoggedIn) {
+  <h1>Por favor inicie sesión</h1>
+  <hr />
+  <p>Para ver tu perfil y los personajes tenés que entrar con tu usuario de WSO2.</p>
+  <button class="btn btn-success" (click)="login()">Login</button>
+} @else {
+  <h1>Bienvenido, {{ claims?.given_name ?? claims?.username }}</h1>
+  <hr />
+  <p>Iniciaste sesión con WSO2 Identity Server.</p>
+  <a class="btn btn-primary me-2" routerLink="/perfil">Ver mi perfil</a>
+  <a class="btn btn-outline-primary" routerLink="/personajes">Ver personajes</a>
+}

@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand bg-dark" data-bs-theme="dark">
+  <div class="container flex-wrap">
+    <a class="navbar-brand" routerLink="/">Rick and Morty + WSO2</a>
+
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+      </li>
+      @if (isLoggedIn) {
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/perfil" routerLinkActive="active">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/personajes" routerLinkActive="active">Personajes</a>
+        </li>
+      }
+    </ul>
+
+    @if (isLoggedIn) {
+      <span class="navbar-text me-3">{{ username }}</span>
+      <button class="btn btn-outline-light btn-sm" (click)="logout()">Logout</button>
+    } @else {
+      <button class="btn btn-success btn-sm" (click)="login()">Login</button>
+    }
+  </div>
+</nav>
