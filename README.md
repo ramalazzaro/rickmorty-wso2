@@ -1,59 +1,34 @@
-# RickmortyWso2
+# Rick and Morty con WSO2
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
+Segunda parte del trabajo integrador de Arquitectura Web (Universidad CAECE, 2026): autenticación con WSO2 Identity Server.
 
-## Development server
+Integrantes: Ramiro Lazzaro, Francisco Hernandez y Manuel Muñoz.
 
-To start a local development server, run:
+Es una aplicación en Angular que inicia sesión contra WSO2 con OpenID Connect (flujo de código de autorización con PKCE), usando la librería `angular-oauth2-oidc`. Sin sesión solo se ve el inicio; con sesión se pueden ver el perfil (datos del token de ID) y los personajes de [The Rick and Morty API](https://rickandmortyapi.com).
+
+## WSO2 en Docker
+
+La primera vez:
 
 ```bash
+docker run -d --name wso2is -p 127.0.0.1:9443:9443 wso2/wso2is:7.3.0
+```
+
+Las siguientes veces (así no se pierde la configuración):
+
+```bash
+docker start wso2is
+```
+
+La consola queda en https://localhost:9443/console. El certificado es autofirmado, así que el navegador muestra un aviso que hay que aceptar una vez.
+
+En la consola se registró una aplicación de tipo Single-Page Application con la URL de redirección `http://localhost:4200`, solo con el grant Code (sin Refresh Token). El Client ID está en `src/app/app.config.ts`.
+
+## Cómo correrlo
+
+```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Después abrir http://localhost:4200
