@@ -8,7 +8,7 @@ import { routes } from './app.routes';
 export const authConfig: AuthConfig = {
   issuer: 'https://localhost:9443/oauth2/token',
   redirectUri: window.location.origin,
-  clientId: 'CLIENT_ID',
+  clientId: 'JBi43ZH9bZX7rYaLrxBOlKShmqsa',
   responseType: 'code',
   scope: 'openid profile email',
   // el endpoint de autorización de WSO2 no empieza con el issuer, con la validación estricta falla
