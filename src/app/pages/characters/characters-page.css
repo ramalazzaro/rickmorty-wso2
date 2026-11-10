@@ -1,0 +1,19 @@
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.character-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  text-align: center;
+}
+
+.character-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}

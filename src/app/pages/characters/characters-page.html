@@ -1,0 +1,15 @@
+<h2 class="mb-3">Personajes</h2>
+
+@if (characters().length > 0) {
+  <div class="characters-grid">
+    @for (character of characters(); track character.id) {
+      <div class="character-card">
+        <img [src]="character.image" [alt]="character.name" />
+        <h6>{{ character.name }}</h6>
+        <small>{{ character.species }}</small>
+      </div>
+    }
+  </div>
+} @else {
+  <p>Cargando personajes...</p>
+}
