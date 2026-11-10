@@ -1,0 +1,19 @@
+<h2 class="mb-3">Mi perfil</h2>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <p class="mb-1"><strong>Nombre:</strong> {{ claims.given_name }} {{ claims.family_name }}</p>
+    <p class="mb-1"><strong>Email:</strong> {{ claims.email }}</p>
+    <p class="mb-1"><strong>Usuario (sub):</strong> {{ claims.sub }}</p>
+    <p class="mb-0"><strong>El token de acceso vence:</strong> {{ accessTokenExpiration | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+  </div>
+</div>
+
+<h5>Contenido del token de ID</h5>
+<ul class="list-group">
+  @for (claim of claimList; track claim[0]) {
+    <li class="list-group-item">
+      <strong>{{ claim[0] }}:</strong> {{ claim[1] }}
+    </li>
+  }
+</ul>
